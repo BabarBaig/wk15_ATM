@@ -1,2 +1,3 @@
-# wk15_ATM
-Implement an ATM
+# ATMExercise
+Simple React ATM
+<img src="./atm.png" />
