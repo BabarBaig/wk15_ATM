@@ -11,19 +11,23 @@ const ATMDeposit = ({ onChange, isDeposit }) => {
 };
 
 const Account = () => {
-  let deposit = 0; // state of this transaction
+  let deposit = 0; // state of this transaction. updated in handleChange() below
   const [totalState, setTotalState] = React.useState(0);
   const [isDeposit , setIsDeposit ] = React.useState(true);
 
   let status = `Account Balance $ ${totalState} `;
   console.log(`Account Rendered with isDeposit: ${isDeposit}`);
 
-  const handleChange = event => {
+  const handleChange = event => {   // updates "deposit". called after every buttonpress
     console.log(`handleChange ${event.target.value}`);
     deposit = Number(event.target.value);
   };
 
   const handleSubmit = () => {
+    if (!isDeposit && (deposit > totalState)){
+        alert(`Your cashback $${deposit} exceeds account balance $${totalState}`)
+        return
+    }
     let newTotal = isDeposit ? totalState + deposit : totalState - deposit;
     setTotalState(newTotal);
     event.preventDefault();
@@ -32,7 +36,7 @@ const Account = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 id="total">{status}</h2>
-      <button onClick={() => setIsDeposit(true)}>Deposit</button>
+      <button onClick={() => setIsDeposit(true )}>Deposit</button>
       <button onClick={() => setIsDeposit(false)}>Cash Back</button>
       <ATMDeposit onChange={handleChange} isDeposit={isDeposit}></ATMDeposit>
     </form>
