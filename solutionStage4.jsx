@@ -1,7 +1,6 @@
 const ATMDeposit = ({ onChange, isDeposit, isValid }) => {
     const choice = ['Deposit', 'Cash Back'];
     console.log(`ATM isDeposit: ${isDeposit}`);
-    // console.log(!isValid)
     return (
       <label className="label huge">
         <h3> {choice[Number(!isDeposit)]}</h3>
@@ -26,23 +25,23 @@ const ATMDeposit = ({ onChange, isDeposit, isValid }) => {
     const handleChange = (event) => {
       console.log(`handleChange ${event.target.value}`);
       const value = event.target.value
-      if (value <= 0) {
-        return
-      }
+      if (value <= 0)   return
       if ((atmMode == _CashBack) && (value > totalState)){
         console.log(`cashback ${value} cannot be greater than ${totalState}`)
         setValidTransaction(false)
       } else {
         setValidTransaction(true)
       }
-      setDeposit(Number(event.target.value));
+      setDeposit(Number(value));
     };
+
     const handleSubmit = (event) => {
       let newTotal = isDeposit ? totalState + deposit : totalState - deposit;
       setTotalState(newTotal);
       setValidTransaction(false);
       event.preventDefault();
     };
+
     const handleModeSelect = (event) => {
       const value = event.target.value
       setAtmMode(value)
@@ -65,8 +64,7 @@ const ATMDeposit = ({ onChange, isDeposit, isValid }) => {
           <option id="cashback-selection" value="Cash Back">Cash Back</option>
         </select>
         { atmMode &&
-          <ATMDeposit onChange={handleChange} isDeposit={isDeposit}
-              isValid={validTransaction}>
+          <ATMDeposit onChange={handleChange} isDeposit={isDeposit} isValid={validTransaction}>
           </ATMDeposit>
         }
       </form>

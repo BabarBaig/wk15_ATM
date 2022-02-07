@@ -10,4 +10,4 @@ Create a simple ATM with some error handling
 
 ## Improvements
 
-Add CSS Styling
+Minor CSS styling implementd.  Additional CSS Styling needed.
