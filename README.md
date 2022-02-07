@@ -2,5 +2,12 @@
 
 ![ATM Example Image](atm.png)
 
-1. Create a simple ATM with two components (the bank and the ATM)
-2. Synchronize the two so that the account balance updates when cash is deposited or withdrawn
+Create a simple ATM with some error handling
+
+1. Allow user to choose between Deposit and Cash Back
+2. Only positive numbers may be entered
+3. Cash Back cannot exceed account balance, or the "Submit" button is disabled
+
+## Improvements
+
+Add CSS Styling
