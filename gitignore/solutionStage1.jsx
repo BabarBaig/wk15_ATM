@@ -33,5 +33,5 @@ const Account = () => {
     </form>
   );
 };
-// ========================================
+
 ReactDOM.render(<Account />, document.getElementById("root"));

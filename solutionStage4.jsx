@@ -60,7 +60,7 @@ const ATMDeposit = ({ onChange, isDeposit, isValid }) => {
         <p></p>
         <select onChange={(e) => handleModeSelect(e)} name="mode" id="mode-select">
           <option id="no-selection"       value=""></option>
-          <option id="deposit-selection"  value="Deposit">Deposit</option>
+          <option id="deposit-selection"  value="Deposit"  >Deposit</option>
           <option id="cashback-selection" value="Cash Back">Cash Back</option>
         </select>
         { atmMode &&
